@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+}
+form{
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+    border: 1px solid navy;
+    width: 180px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#gold_form{
+    display: block;
+    border: none;
+
+}
+input#input_gold{
+    display:inline-block;
+}
+
+input{
+    display: block;
+    margin: 10px auto;
+}
+label{
+    display: block;
+    
+}
+
+h1{
+    /* margin: 20px auto; */
+    text-align: center;
+    margin-top: 300px;
+    font-size: 50px;
+    color: navy;
+}
+
+h3{
+    /* margin: 20px auto; */
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+    color: navy;
+}
+
+button{
+    margin: 10px auto;
+    display: block;
+    width: 100px;
+    height: 50px;
+    color: navy;
+    font-weight: bold;
+}
+
+
+p{
+    /* text-align: center; */
+    margin-left: 10px;
+}
+
+#lbl_gold{
+    display: inline;
+    margin-left: 10px;
+}
+
+textarea{
+    width: 650px;
+    height: 100px;
+}
+
+#textbox{
+    border: none;
+}
+
+.score{
+    /* outline: 1px solid blue; */
+    margin-left: 10px;
+    margin-top: 10px;
+
+}
+
+.forms{
+    /* outline: 1px solid red; */
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.form-block{
+    /* outline: 1px solid teal; */
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.form-block:first-child{
+    margin-left: 0px;
+}
+
+
+.history{
+    /* outline: 1px solid green; */
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.reset{
+    /* outline: 1px solid purple; */
+    margin: 10px 10px;
+}
+
+#lost-gold{
+    color: red;
+}
+
+#won-gold{
+    color: green;
+}
