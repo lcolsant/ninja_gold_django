@@ -20,6 +20,7 @@ def index(request):
     return render(request,'main/index.html')
 
 def process_money(request):
+    print 'got here'
     if request.POST['building'] == 'farm':
         request.session['new_gold'] = random.randrange(10, 21)
         print "Found new farm gold: ",request.session['new_gold']
@@ -41,6 +42,7 @@ def process_money(request):
 
     print "Session total_gold is now:", request.session['total_gold']
     request.session['history'].append( [request.session['new_gold'], request.session['building'],datetime.datetime.now().strftime("%m/%d/%Y %H:%M") ])
+    request.session.modified = True
     print request.session['history']
     request.session['length'] = len(request.session['history'])
 
