@@ -22,18 +22,22 @@ def index(request):
 def process_money(request):
     print 'got here'
     if request.POST['building'] == 'farm':
+        request.session['building'] = 'farm'
         request.session['new_gold'] = random.randrange(10, 21)
         print "Found new farm gold: ",request.session['new_gold']
         request.session['total_gold']+=request.session['new_gold']
     elif request.POST['building'] == 'cave':
+        request.session['building'] = 'cave'
         request.session['new_gold'] = random.randrange(5, 11)
         print "Found new cave gold: ",request.session['new_gold']
         request.session['total_gold']+=request.session['new_gold']
     elif request.POST['building'] == 'house':
+        request.session['building'] = 'house'
         request.session['new_gold'] = random.randrange(2, 6)
         print "Found new house gold: ",request.session['new_gold']
         request.session['total_gold']+=request.session['new_gold']
     elif request.POST['building'] == 'casino':
+        request.session['building'] = 'casino'
         request.session['new_gold'] = random.randrange(-50, 51)
         print "Found new casino gold: ",request.session['new_gold']
         request.session['total_gold']+= request.session['new_gold']
