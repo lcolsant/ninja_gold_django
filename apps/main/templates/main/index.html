@@ -17,7 +17,7 @@
 
         <div class="forms">
             <div class="form-block">
-                <form action="/process_money" method="post">
+                <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <!-- <label for="building">Farm</label> -->
                     <label>Farm</label>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-block">
-                <form action="/process_money" method="post">
+                <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <label>Cave</label>
                     <label>(earns 5-10 golds)</label>
@@ -38,7 +38,7 @@
             </div>
     
             <div class="form-block">
-                <form action="/process_money" method="post">
+                <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <label>House</label>
                     <label>(earns 2-5 golds)</label>
@@ -48,7 +48,7 @@
             </div>
 
             <div class="form-block">
-                <form action="/process_money" method="post">
+                <form action="/process_money" method="POST">
                     {% csrf_token %}
                     <label>Casino</label>
                     <label>(earns/takes 0-50 golds)</label>
@@ -61,23 +61,20 @@
         <div class="history">
             <h2>Activities</h2>
             <p>
-        
-                {{request.session.history|length}}
-                {% comment %}
-                {%if request.session.history|length > 0 :%}
-                    {% for i in range(0,request.session.length): %}
-                        {% if request.session.history[i][0] < 0 : %}
+                {%if request.session.history|length > 0 %}
+                    {% for i in request.session.history %}
+                        {% if i.new_gold < 0  %}
                         <p id="lost-gold">
-                            Lost {{request.session.history[i][0] }} golds from the {{request.session.history[i][1] }}! (  {{request.session.history[i][2] }} )
+                            Lost {{i.new_gold }} golds from the {{i.building}}! ({{i.time }} )
                         </p>
-                        {% else: %}
+                        {% else %}
                         <p id="won-gold">
-                            Earned {{request.session.history[i][0] }} golds from the {{request.session.history[i][1] }}! (  {{request.session.history[i][2] }} )
+                            Earned {{i.new_gold }} golds from the {{i.building}}! (  {{i.time }} )
                         </p>
                         {% endif %}
                     {% endfor %}
                 {% endif %}
-                {% endcomment %}
+             
             </p>
         </div>
         <div class="reset">

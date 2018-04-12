@@ -41,7 +41,15 @@ def process_money(request):
             request.session['total_gold'] = 0
 
     print "Session total_gold is now:", request.session['total_gold']
-    request.session['history'].append( [request.session['new_gold'], request.session['building'],datetime.datetime.now().strftime("%m/%d/%Y %H:%M") ])
+    
+    turn = {
+        'new_gold':request.session['new_gold'],
+        'building':request.session['building'],
+        'time':datetime.datetime.now().strftime("%m/%d/%Y %H:%M"), 
+    }
+    
+    
+    request.session['history'].append(turn)
     request.session.modified = True
     print request.session['history']
     request.session['length'] = len(request.session['history'])
